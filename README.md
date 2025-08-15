@@ -1,31 +1,59 @@
 # React Side Effects Lab
 
 ## Overview
-This lab demonstrates how to handle **side effects** in React using the `useEffect` hook. The app fetches and displays a random **programming joke** when the page loads and allows users to fetch a new joke with a button click.
+A React app that demonstrates `useEffect` by fetching and displaying programming jokes from an API.
 
 ## Setup
 
-Run `npm install` to install dependencies.
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Then, run `npm run dev` to start up the React app at `http://localhost:5173`.
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   Visit `http://localhost:5173`
 
-In another tab, run `npm run test` to run the test suite.
+3. Run tests:
+   ```bash
+   npm run test
+   ```
 
-Before you start building out the application, examine the current code and component hierarchy. This will tell you how components can pass data to each other as well as where that information should be stored.
+## What It Does
 
-## Deliverables
+- Fetches a programming joke when the app loads
+- Shows a "Loading..." message while fetching
+- Displays the joke once loaded
+- Lets users click "Get a New Joke" to fetch another one
+- Shows error messages if something goes wrong
 
-- **When our application loads**, make a `GET` request to `https://v2.jokeapi.dev/joke/Programming?type=single` to fetch a joke. Given your component tree, think about which component should be responsible for managing the joke data. Once the data is fetched, store it in state and render the joke on the page.
+## Key Files
 
-- **When the `New Joke` button is clicked**, make another `GET` request to `https://v2.jokeapi.dev/joke/Programming?type=single` to fetch a new joke. Update the state accordingly so that the new joke replaces the old one in the UI.
+- `src/App.jsx` - Main component with state management and API calls
+- `src/components/JokeDisplay.jsx` - Shows jokes, loading, and error states
+- `src/components/FetchButton.jsx` - Button to fetch new jokes
+- `src/__tests__/App.test.jsx` - Tests for the app functionality
 
-- **While waiting for the fetch request to resolve**, display a loading message to inform the user that a joke is being fetched.
+## Learning Goals
 
-- **If the API request fails**, handle the error gracefully by displaying a message instead of breaking the UI.
+- Use `useEffect` for side effects (API calls)
+- Handle loading and error states
+- Make HTTP requests with `fetch()`
+- Test components with async behavior
 
-## Best Practices
+## API Used
 
-- Use the `useEffect` hook to make API calls at the appropriate lifecycle phase.
-- Manage component state using the `useState` hook.
-- Keep components modular and reusable.
-- Remove unnecessary console logs and commented-out code before submission.
+- **JokeAPI**: `https://v2.jokeapi.dev/joke/Programming?type=single`
+- Returns programming jokes in JSON format
+
+## Commands
+
+```bash
+npm run dev          # Start development server
+npm run test         # Run tests
+npm run build        # Build for production
+```
+
+That's it! The app demonstrates basic React side effects with a simple joke fetcher.
